@@ -22,4 +22,16 @@ class MainView
 		puts "Email: #{attributes.email}"
 		puts 
 	end
+
+	def update_chef(before, after)
+		puts "You have updated a new chef:"
+		puts "Before: #{before}"
+		puts "After: #{after}"
+	end
+
+	def delete_chef(attributes)
+		puts "You have deleted this chef:"
+		puts "-" * 28
+		puts "ID: #{attributes.id}"
+	end
 end

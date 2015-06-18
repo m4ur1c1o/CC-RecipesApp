@@ -17,11 +17,22 @@ class MainController
 
 		case command
 		when "index"
-			puts "Inside index"
+			# puts "Inside index"
 			@view.index(Chef.all)
 		when "create"
-			puts "Inside create"
+			# puts "Inside create"
 			@view.create_chef(Chef.create(name: "Chefcito", email: "chefcito@mail.com"))
+		when "update"
+			# puts "Inside update"
+			chef = Chef.find_by(name: "Chefcito")
+			name_before = chef.name
+			chef.name = "Dany"
+			name_after = chef.name
+			chef.save
+			@view.update_chef(name_before, name_after)
+		when "delete"
+			# puts "Inside delete"
+			@view.delete_chef(Chef.destroy(5))
 		end
 	end
 end
