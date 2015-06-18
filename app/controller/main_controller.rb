@@ -1,8 +1,27 @@
 class MainController
-	def initialize(var)
+
+	def initialize
+		# puts "Se creo el controller"
 		@view = MainView.new
-		puts "Se creo el controller"
+		# @view.interface
 	end
 	
-	
+	def command_case(argv)
+		@argv = argv
+		command = @argv[0]
+		# puts "command: #{command}"
+		# input_class = @argv[1]
+		# input_class.capitalize
+		# puts "input_class: #{input_class}"
+		# p @argv
+
+		case command
+		when "index"
+			puts "Inside index"
+			@view.index(Chef.all)
+		when "create"
+			puts "Inside create"
+			@view.create_chef(Chef.create(name: "Chefcito", email: "chefcito@mail.com"))
+		end
+	end
 end

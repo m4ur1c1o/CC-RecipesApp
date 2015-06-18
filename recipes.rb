@@ -1,4 +1,5 @@
 require_relative 'config/application'
 
 
-MainController.new(ARGV)
+controller = MainController.new
+controller.command_case(ARGV)
